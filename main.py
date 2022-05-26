@@ -19,7 +19,7 @@ TIME_DELAY = 1800
 client = tweepy.Client(consumer_key = CONSUMER_KEY, consumer_secret = CONSUMER_SECRET, access_token = ACCESS_TOKEN, access_token_secret = ACCESS_TOKEN_SECRET)
 
 # Start tweet id
-original_tweet_id = '1529596970410684416'
+original_tweet_id = '1529960008800165893'
 
 book_sentences = txt_to_list_of_tweets('books/the-last-question-asimov.txt')
 # Tweets the book, one line every TIME_DELAY seconds
