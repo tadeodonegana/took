@@ -2,7 +2,7 @@ import nltk
 
 # Uncomment line 5 if you're running the code for the first time, then comment it again.
 # More info about nltk.download() in https://www.nltk.org/api/nltk.html?highlight=nltk%20download#module-nltk.downloader
-nltk.download('punkt')
+#nltk.download('punkt')
 
 # Converts a .txt to a list of sentences to tweet
 def txt_to_list_of_tweets(txt_name):
