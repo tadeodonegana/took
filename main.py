@@ -21,6 +21,13 @@ client = tweepy.Client(consumer_key = CONSUMER_KEY, consumer_secret = CONSUMER_S
 # Start tweet id
 original_tweet_id = '1529960008800165893'
 
+# Returns last tweet id, to create a thread
+def get_last_tweet_id():
+    # Get the last tweet (the one created upside)
+    tweets = client.get_users_tweets(id=USER_ID, tweet_fields=['context_annotations','created_at','geo'], user_auth=True)
+
+    return tweets.data[0].id
+
 book_sentences = txt_to_list_of_tweets('books/the-last-question-asimov.txt')
 # Tweets the book, one line every TIME_DELAY seconds
 for sentence in book_sentences:
@@ -31,12 +38,8 @@ for sentence in book_sentences:
         for long_sentence in long_sentences:
             client.create_tweet(text = long_sentence, in_reply_to_tweet_id = original_tweet_id)
             time.sleep(TIME_DELAY)
+            original_tweet_id = get_last_tweet_id()
     else:
         client.create_tweet(text = sentence, in_reply_to_tweet_id = original_tweet_id)
         time.sleep(TIME_DELAY)
-    
-    # Get the last tweet (the one created upside)
-    tweets = client.get_users_tweets(id=USER_ID, tweet_fields=['context_annotations','created_at','geo'], user_auth=True)
-
-    # Get the id of the last tweet to continue the thread
-    original_tweet_id =  tweets.data[0].id
+        original_tweet_id = get_last_tweet_id()
