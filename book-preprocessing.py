@@ -27,5 +27,3 @@ def tweetify_book(txt_name):
                     file.write(long_sentence+'\n')
             else:
                 file.write(sentence+'\n')
-
-tweetify_book('the-last-question-asimov.txt')
