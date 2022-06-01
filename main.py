@@ -12,7 +12,7 @@ ACCESS_TOKEN_SECRET = os.getenv('ACCESS_TOKEN_SECRET')
 # User numerical ID
 USER_ID = '1526738098654175232'
 # Time delay
-TIME_DELAY = 60
+TIME_DELAY = 1800
 # Route to the book to tweet
 BOOK_TO_TWEET = 'the-last-question-asimov.txt'
 
